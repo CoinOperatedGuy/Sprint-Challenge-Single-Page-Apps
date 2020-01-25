@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export default function CharacterCard(props) {
   const [character, setCharacter] = useState();
-
-  useEffect(() => {
+  console.log('props', props)
+  useEffect((props) => {
     const id = props.match.params.id;
 
       axios 
