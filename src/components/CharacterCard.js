@@ -29,7 +29,7 @@ export default function CharacterCard(props) {
     <div>
       <div key={id}>
         <h2>{name}</h2>
-        <img src={image} />
+        <img src={image} alt='' />
         <div>Origin: {origin}</div>
         <div>Status: {status}</div>
         <div>Species: {species}</div>
