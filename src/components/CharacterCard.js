@@ -3,13 +3,11 @@ import axios from 'axios';
 
 export default function CharacterCard(props) {
   const [character, setCharacter] = useState();
-  // console.log('props', props)
+  console.log('props', props)
   useEffect(() => {
-    console.log('props', props)
-    const id = props.match.params.id;
 
       axios 
-        .get(`https://rickandmortyapi.com/api/character/${id}`)
+        .get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`)
         .then(response => {
           setCharacter(response.data);
           console.log('single data', response.data)

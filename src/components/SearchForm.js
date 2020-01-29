@@ -17,16 +17,19 @@ export default function SearchForm() {
         .catch(error => {
           console.error('Server Error', error);
         });
-    }
-    getCharacters();
+  }, []};
     
+  useEffect(() => {
     const filtered = characters.filter(characterName => characterName.includes(search));
     setFilteredCharacters(filtered);
-  }, [search]);
+  }, [search])
+  
+  console.log('Characters: ', characters)
 
   const handleChange = e => {
     e.preventDefault();
     setSearch(e.target.value);
+    console.log(e.target.value);
   };
  
   return (
@@ -37,9 +40,9 @@ export default function SearchForm() {
         onChange={handleChange}
         value={search}
       />
-      {filteredCharacters.map(characterName => (
-        <div key={characterName}>
-          {characterName}
+      {characters.map(characterName => (
+        <div key={characterName.name}>
+          {characterName.name}
         </div>
       ))}
     </section>
